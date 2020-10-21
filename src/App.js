@@ -1,12 +1,10 @@
 import React from 'react';
 import './App.css';
+import Authors from './components/Authors';
 
 function App() {
-  /*fetch('https://jsonplaceholder.typicode.com/todos/1')
-  .then(response => response.json())
-  .then(json => console.log(json));*/
   return (
-    <div className="App"></div>
+    <div className="App"><Authors /></div>
   );
 }
 

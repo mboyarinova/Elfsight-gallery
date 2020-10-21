@@ -1,1 +1,8 @@
-
+.author {
+  align-items: center;
+  /*background-color: red;*/
+  display: flex;
+  height: 80px;
+  justify-content: center;
+  max-width: 50%;
+}
