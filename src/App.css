@@ -1,6 +1,6 @@
 .author {
   align-items: center;
-  border-radius: 5px;
+  border-radius: 10px;
   display: flex;
   font-size: 26px;
   height: 80px;
@@ -9,16 +9,55 @@
   width: 200px;
 }
 
-.author:hover {
-  cursor: pointer;
-  filter: brightness(120%);
-}
-
 .authors {
   display: grid;
   grid: none / auto auto auto;
 }
 
-h1 {
-  text-align: center;
+.photos {
+  align-items: center;
+  left: 10%;
+  position: absolute;
+  top: 20%;
+}
+
+.albums, .photos {
+  display: grid;
+  grid: none / auto auto auto auto auto;
+}
+
+.album, .photo {
+  margin: 30px auto;
+  width: 200px;
+}
+
+.albumCover:hover, .photo:hover, .author:hover {
+  cursor: pointer;
+  filter: brightness(120%);
+}
+
+.albumTitle {
+  font-size: 16px;
+}
+
+.albumTitle:hover {
+  color: blue;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+h3 {
+  font-size: 14px;
+}
+
+button {
+  background-color: #e7e7e7;
+  border: solid black thin;
+  cursor: pointer;
+  font-size: 16px;
+  left: 5%;
+  position: absolute;
+  top: 13%;
+  transition: 0.6s ease;
+  width: 12vw;
 }

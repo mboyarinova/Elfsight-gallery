@@ -22,13 +22,14 @@ class Authors extends Component {
     if (users) {
       return (
         <div>
-          <h1>Авторы альбомов</h1>
+          <h1>Авторы альбомов</h1><br />
           <div className="authors">
             {users.map((user, index) => (
               <div className="author"
                    style={styles[index % colorScheme.length]}
                    key={index}
-                   onClick={() => this.props.action("albums", user["id"])}>
+                   onClick={() => this.props.action("authors", "albums",
+                                    user.id, user.username)}>
                 {user.username}
               </div>
             ))}

@@ -13,5 +13,7 @@ code {
 }*/
 
 body {
+  background-color: #f0ead6;
   font-family: 'Cormorant Garamond';
+  text-align: center;
 }
