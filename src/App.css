@@ -1,8 +1,24 @@
 .author {
   align-items: center;
-  /*background-color: red;*/
+  border-radius: 5px;
   display: flex;
+  font-size: 26px;
   height: 80px;
   justify-content: center;
-  max-width: 50%;
+  margin: 20px auto;
+  width: 200px;
+}
+
+.author:hover {
+  cursor: pointer;
+  filter: brightness(120%);
+}
+
+.authors {
+  display: grid;
+  grid: none / auto auto auto;
+}
+
+h1 {
+  text-align: center;
 }

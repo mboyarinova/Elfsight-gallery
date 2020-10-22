@@ -15,15 +15,24 @@ class Authors extends Component {
 
   render() {
     var users = this.state.data;
+    let colorScheme = ['#8A4F7D', '#887880', '#88A096', '#BBAB8B', '#EF8275'];
+    let styles = colorScheme.map(color => {
+      return {backgroundColor: color};
+    });
     if (users) {
       return (
-        <div id="authors">
-          {users.map(user => (
-            <div className="author">
-              {user.username}
-            </div>
-          )
-        )}
+        <div>
+          <h1>Авторы альбомов</h1>
+          <div className="authors">
+            {users.map((user, index) => (
+              <div className="author"
+                   style={styles[index % colorScheme.length]}
+                   key={index}
+                   onClick={() => this.props.action("albums", user["id"])}>
+                {user.username}
+              </div>
+            ))}
+          </div>
         </div>
       );
     }
