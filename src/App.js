@@ -14,8 +14,23 @@ class App extends Component {
       authorName: null,
       albumId: null,
       albumName: null,
-      photoId: null
+      photoId: null,
+      authorData: null,
+      albumData: null,
+      photoData: null
     }
+  }
+
+  componentDidMount() {
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then(response => response.json())
+      .then(authorData => this.setState({ authorData }));
+    fetch('https://jsonplaceholder.typicode.com/albums')
+      .then(response => response.json())
+      .then(albumData => this.setState({ albumData }));
+    fetch('https://jsonplaceholder.typicode.com/photos')
+      .then(response => response.json())
+      .then(photoData => this.setState({ photoData }));
   }
 
   pageHandler = (prevPage, newPage, id, name) => {
@@ -49,24 +64,33 @@ class App extends Component {
   }
 
   render() {
-    var page;
-    switch(this.state.page) {
-      case "authors":
-        page = <Authors action={this.pageHandler} />;
-        break;
-      case "albums":
-        page = <Albums action={this.pageHandler} authorId={this.state.authorId}
-                       authorName={this.state.authorName} />;
-        break;
-      case "photos":
-        page = <Photos action={this.pageHandler} albumId={this.state.albumId}
-                       albumName={this.state.albumName} />;
-        break;
-      default:
-        break;
+    if (this.state.authorData && this.state.albumData && this.state.photoData) {
+      var page;
+      switch(this.state.page) {
+        case "authors":
+          page = <Authors action={this.pageHandler}
+                          data={this.state.authorData} />;
+          break;
+        case "albums":
+          page = <Albums action={this.pageHandler}
+                         authorId={this.state.authorId}
+                         authorName={this.state.authorName}
+                         albumData={this.state.albumData}
+                         photoData={this.state.photoData} />;
+          break;
+        case "photos":
+          page = <Photos action={this.pageHandler}
+                         albumId={this.state.albumId}
+                         albumName={this.state.albumName}
+                         data={this.state.photoData} />;
+          break;
+        default:
+          break;
+      }
+      return <div className="App">{page}</div>;
+    } else {
+      return <div />
     }
-
-    return <div className="App">{page}</div>;
   }
 }
 

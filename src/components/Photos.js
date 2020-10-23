@@ -6,16 +6,9 @@ class Photos extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: null,
       photoId: -1,
       photoUrl: null
     };
-  }
-
-  componentDidMount() {
-    fetch('https://jsonplaceholder.typicode.com/photos')
-      .then(response => response.json())
-      .then(data => this.setState({ data }));
   }
 
   handlePopup = (id, url) => {
@@ -29,9 +22,7 @@ class Photos extends Component {
 
   render() {
 
-    //console.log(this.state.photoId, this.state.photoUrl);
-
-    let allPhotos = this.state.data;
+    let allPhotos = this.props.data;
     if (allPhotos) {
       let photos = allPhotos.filter(
         photo => photo.albumId === this.props.albumId

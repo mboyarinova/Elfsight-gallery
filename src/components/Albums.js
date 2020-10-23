@@ -2,36 +2,19 @@ import React, {Component} from 'react';
 
 class Albums extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      albumData: null,
-      photoData: null
-    };
-  }
-
-  componentDidMount() {
-    fetch('https://jsonplaceholder.typicode.com/albums')
-      .then(response => response.json())
-      .then(albumData => this.setState({ albumData }));
-    fetch('https://jsonplaceholder.typicode.com/photos')
-      .then(response => response.json())
-      .then(photoData => this.setState({ photoData }));
-  }
-
   displayAlbum = album => {
     return this.props.action("albums", "photos", album.id, album.title);
   }
 
   render() {
 
-    var allAlbums = this.state.albumData;
-    var allPhotos = this.state.photoData;
+    var allAlbums = this.props.albumData;
+    var allPhotos = this.props.photoData;
     if (allAlbums && allPhotos) {
        let albums = allAlbums.filter(
            album => album.userId === this.props.authorId);
        var photos = albums.map(album => {
-         return this.state.photoData.filter(
+         return allPhotos.filter(
            photo => photo.albumId === album.id
          );
        });

@@ -2,24 +2,13 @@ import React, {Component} from 'react';
 
 class Authors extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = { data: null };
-  }
-
-  componentDidMount() {
-    fetch('https://jsonplaceholder.typicode.com/users')
-      .then(response => response.json())
-      .then(data => this.setState({ data }));
-  }
-
   render() {
-    var users = this.state.data;
-    let colorScheme = ['#8A4F7D', '#887880', '#88A096', '#BBAB8B', '#EF8275'];
-    let styles = colorScheme.map(color => {
-      return {backgroundColor: color};
-    });
+    var users = this.props.data;
     if (users) {
+      let colorScheme = ['#8A4F7D', '#887880', '#88A096', '#BBAB8B', '#EF8275'];
+      let styles = colorScheme.map(color => {
+        return {backgroundColor: color};
+      });
       return (
         <div>
           <h1>Авторы альбомов</h1><br />
