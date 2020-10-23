@@ -82,6 +82,7 @@ class App extends Component {
           page = <Photos action={this.pageHandler}
                          albumId={this.state.albumId}
                          albumName={this.state.albumName}
+                         authorName={this.state.authorName}
                          data={this.state.photoData} />;
           break;
         default:

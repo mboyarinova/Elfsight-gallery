@@ -20,8 +20,8 @@ class Albums extends Component {
        });
 
        return (
-         <div>
-           <h1>Альбомы пользователя {this.props.authorName}</h1><br />
+         <React.Fragment>
+           <h1>Альбомы пользователя {this.props.authorName}</h1>
            <button onClick={() => this.props.action("albums", "authors")}>
              Вернуться в список пользователей
            </button>
@@ -32,14 +32,16 @@ class Albums extends Component {
                        className="albumCover"
                        onClick={() => this.displayAlbum(album)} />
                   <h2 className="albumTitle"
-                      onClick={() => this.displayAlbum(album)}>
+                      onClick={() => this.displayAlbum(album)}
+                      onKeyPress={() => this.displayAlbum(album)}
+                      tabIndex="0">
                     {album.title}
                   </h2>
                   <h3>({photos[index].length} фотографий)</h3>
                 </div>
               ))}
            </div>
-         </div>
+         </React.Fragment>
        )
     }
 

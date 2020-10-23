@@ -10,20 +10,23 @@ class Authors extends Component {
         return {backgroundColor: color};
       });
       return (
-        <div>
-          <h1>Авторы альбомов</h1><br />
+        <React.Fragment>
+          <h1>Авторы альбомов</h1>
           <div className="authors">
             {users.map((user, index) => (
               <div className="author"
                    style={styles[index % colorScheme.length]}
                    key={index}
+                   tabIndex="0"
                    onClick={() => this.props.action("authors", "albums",
+                                    user.id, user.username)}
+                   onKeyPress={() => this.props.action("authors", "albums",
                                     user.id, user.username)}>
                 {user.username}
               </div>
             ))}
           </div>
-        </div>
+        </React.Fragment>
       );
     }
     return <div />

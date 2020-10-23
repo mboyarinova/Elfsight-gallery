@@ -6,9 +6,7 @@ class Popup extends Component {
     super(props);
     this.state = {
       photoId: this.props.photoId,
-      photoUrl: this.props.photoUrl,
-      prevButton: true,
-      nextButton: true
+      photoUrl: this.props.photoUrl
     };
   }
 
@@ -33,7 +31,7 @@ class Popup extends Component {
 
   handleClose = () => {
   document.getElementsByClassName("popup")[0].style.display = "none";
-  document.getElementsByClassName("main-body")[0].style.display = "block";
+  document.getElementsByClassName("photos")[0].style.display = "grid";
 }
 
   render() {
@@ -42,21 +40,33 @@ class Popup extends Component {
 
     var prevButton;
     if (photos.findIndex(photo => photo.id === this.state.photoId)) {
-      prevButton = <div className="prev" onClick={() => this.changePhoto(-1)}>&#10094;</div>
+      prevButton =
+        <div className="prev" tabIndex="0" aria-label="previous photo"
+             onClick={() => this.changePhoto(-1)}
+             onKeyPress={() => this.changePhoto(-1)}>
+          &#10094;
+        </div>
     } else {
       prevButton = null
     };
 
     var nextButton;
-    if (photos.findIndex(photo => photo.id === this.state.photoId) !== photos.length-1) {
-      nextButton = <div className="next" onClick={() => this.changePhoto(1)}>&#10095;</div>
+    if (photos.findIndex(photo => photo.id === this.state.photoId) !==
+          photos.length-1) {
+      nextButton =
+        <div className="next" tabIndex="0" aria-label="next photo"
+             onClick={() => this.changePhoto(1)}
+             onKeyPress={() => this.changePhoto(1)}>
+          &#10095;
+        </div>
     } else {
       nextButton = null
     };
 
     return (
       <div className="popup">
-        <button className="close-button" onClick={this.handleClose}>
+        <button className="close-button" onClick={this.handleClose}
+                aria-label="close the popup">
           &times;
         </button>
         <img className="popup-img" alt="" src={this.state.photoUrl} />
