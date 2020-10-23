@@ -18,13 +18,18 @@ class Photos extends Component {
       .then(data => this.setState({ data }));
   }
 
-  handlePopup = (photoId, photoUrl) => {
-    this.setState({ photoId, photoUrl });
+  handlePopup = (id, url) => {
+    this.setState({
+      photoId: id,
+      photoUrl: url
+    });
     document.getElementsByClassName("main-body")[0].style.display = "none";
-    document.getElementsByClassName("popup")[0].style.display = "block";
+    document.getElementsByClassName("popup")[0].style.display = "inline-block";
   }
 
   render() {
+
+    //console.log(this.state.photoId, this.state.photoUrl);
 
     let allPhotos = this.state.data;
     if (allPhotos) {
@@ -47,7 +52,8 @@ class Photos extends Component {
               ))}
             </div>
           </div>
-          <Popup photoId={this.state.photoId} photoUrl={this.state.photoUrl} />
+          <Popup photoId={this.state.photoId} photoUrl={this.state.photoUrl}
+                 photos={photos} />
         </div>
       )
     }
