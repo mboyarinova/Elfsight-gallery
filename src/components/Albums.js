@@ -29,9 +29,9 @@ class Albums extends Component {
               {albums.map((album, index) => (
                 <div className="album" key={index}>
                   <img src={photos[index][0].thumbnailUrl} alt=""
-                       className="albumCover"
+                       className="album-cover"
                        onClick={() => this.displayAlbum(album)} />
-                  <h2 className="albumTitle"
+                  <h2 className="album-title"
                       onClick={() => this.displayAlbum(album)}
                       onKeyPress={() => this.displayAlbum(album)}
                       tabIndex="0">

@@ -1,4 +1,4 @@
-.App {
+.app {
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -36,16 +36,16 @@
   width: 200px;
 }
 
-.albumCover:hover, .photo:hover, .author:hover {
+.album-cover:hover, .photo:hover, .author:hover {
   cursor: pointer;
   filter: brightness(120%);
 }
 
-.albumTitle {
+.album-title {
   font-size: 16px;
 }
 
-.albumTitle:hover {
+.album-title:hover {
   color: blue;
   cursor: pointer;
   text-decoration: underline;

@@ -88,7 +88,7 @@ class App extends Component {
         default:
           break;
       }
-      return <div className="App">{page}</div>;
+      return <div className="app">{page}</div>;
     } else {
       return <div />
     }
