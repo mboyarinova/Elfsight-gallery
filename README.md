@@ -1,9 +1,22 @@
+# Фотогалерея
 
-## Setup
+Веб-приложение разработано на React и представляет из себя простую фотогалерею.
 
-To view this project, install it locally in the project directory using npm:
+Пользователь имеет следующие возможности:
+* Просматривать список альбомов автора, где каждый альбом состоит из обложки, названия и количества фотографий в нем
+* Просматривать список фотографий внутри альбома
+* Открыть фотографию в попапе для детального просмотра
+* Листать фотографии альбома внутри попапа
+* Вернуться из конкретного альбома в список альбомов
+
+В качестве источника данных использовался сервис https://jsonplaceholder.typicode.com/ (albums, photos, users).
+
+
+## Настройка
 
 ```
+git clone https://github.com/mboyarinova/Elfsight-gallery
+cd Elfsight-gallery
 npm install
 npm run build
 npm run start
